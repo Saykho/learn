@@ -52,3 +52,32 @@ header {
     font-size: 1.2rem;
     text-transform: capitalize;
 }
+
+.users-section {
+    margin-top: 2.5rem;
+    padding: 1.2rem;
+    background: #f7f6fb;
+    border-radius: 5px;
+    box-shadow: 0 1px 7px rgba(92,40,210,.06);
+    border: 1px solid #dddbe7;
+}
+
+.users-section h3 {
+    margin-bottom: 0.8rem;
+    font-size: 1.15rem;
+    color: #402898;
+}
+
+#user-list {
+    list-style: none;
+    padding-left: 0;
+}
+#user-list li {
+    padding: 6px 0 6px 8px;
+    border-bottom: 1px solid #ebe4f7;
+    color: #5d39a3;
+    font-size: 1rem;
+}
+#user-list li:last-child {
+    border-bottom: none;
+}

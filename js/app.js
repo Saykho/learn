@@ -1,3 +1,5 @@
+import { getUsersSmart } from './idb-api-cache.js';
+
 window.addEventListener('load', async () => {
     if ('serviceWorker' in navigator) {
         try {
@@ -8,7 +10,8 @@ window.addEventListener('load', async () => {
         }
     }
 
-    await loadPosts()
+    await loadPosts();
+    await renderUsers();
 })
 
 
@@ -18,6 +21,14 @@ async function loadPosts() {
 
     const container = document.querySelector('#posts')
     container.innerHTML = data.map(toCard).join('\n')
+}
+
+async function renderUsers() {
+    const users = await getUsersSmart();
+    const ul = document.getElementById('user-list');
+    if (ul) {
+        ul.innerHTML = users.map(u => `<li>${u.name} (${u.email})</li>`).join('');
+    }
 }
 
 function toCard(post) {
